@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CardCurrentWeather from "../../components/cardCurrentWeather/CardCurrentWeather";
 import CardForecastWeather from "../../components/cardForecastWeather/CardForecastWeather";
+import FormSelectCity from "../../components/formSelectCity/FormSelectCity";
 
 const Inicio = () => {
   const [currentPosition, setCurrentPosition] = useState();
@@ -32,23 +33,20 @@ const Inicio = () => {
     let pivot = [];
     let final = [];
     axios
+      // .get(
+      //   `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&units=metric&appid=f1542c7b0d493e2cef682df5a1a98108`
+      // )
       .get(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&units=metric&appid=f1542c7b0d493e2cef682df5a1a98108`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=current,hourly,minutely,alerts&units=metric&appid=f1542c7b0d493e2cef682df5a1a98108`
       )
       .then((res) => {
         console.log("FORECAST", res.data);
-        datos = res.data.list;
+        datos = res.data.daily;
 
-        while (datos.length > 0) {
-          let algo = datos[0].dt_txt.substring(0, 10);
-          let cur = datos.filter((fil) => fil.dt_txt.substring(0, 10) === algo);
-          pivot.push([...cur]);
-          datos = datos.filter((fil) => fil.dt_txt.substring(0, 10) !== algo);
-        }
-        pivot = pivot.slice(0, 5);
+        pivot = datos.slice(0, 5);
         setForecastWeatherList(pivot);
 
-        console.log("final", final);
+        console.log("final", pivot);
       });
   };
 
@@ -62,10 +60,10 @@ const Inicio = () => {
   return (
     <div>
       <h1>Clima en {currentWeather?.name} </h1>
+      <FormSelectCity setCurrentPosition={setCurrentPosition} />
       <CardCurrentWeather data={currentWeather} />
-
       {forecastWeatherList?.map((w, i) => (
-        <CardForecastWeather key={i} data={w} />
+        <CardForecastWeather key={i} data={w} index={i} />
       ))}
     </div>
   );

@@ -2,16 +2,18 @@ import React from "react";
 import moment from "moment";
 import "./CardForecastWeather.css";
 
-const CardForecastWeather = ({ data }) => {
+const CardForecastWeather = ({ data, index }) => {
   console.log(data);
   return (
     <div className="box">
-      {data.map((dato) => (
-        <div key={dato?.dt} className="card-for">
-          <h5>{moment(dato?.dt_txt).format("DD-MM-yyyy HH:mm:ss")}</h5>
-          <div>{Math.round(dato?.main?.temp)}°C</div>
-        </div>
-      ))}
+      <div key={data?.dt} className="card-for">
+        <h5>
+          {moment()
+            .add(index + 1, "d")
+            .format("DD/MM")}
+        </h5>
+        <div>{Math.round(data?.temp?.day)}°C</div>
+      </div>
     </div>
   );
 };
