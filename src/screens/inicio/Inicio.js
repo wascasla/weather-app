@@ -33,9 +33,6 @@ const Inicio = () => {
     let pivot = [];
     let final = [];
     axios
-      // .get(
-      //   `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&units=metric&appid=f1542c7b0d493e2cef682df5a1a98108`
-      // )
       .get(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=current,hourly,minutely,alerts&units=metric&appid=f1542c7b0d493e2cef682df5a1a98108`
       )

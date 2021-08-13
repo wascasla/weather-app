@@ -1,3 +1,3 @@
-export default {
-  getCurrentWeatherByCoor: function () {},
-};
+import weather from "./weather";
+
+export { weather };
