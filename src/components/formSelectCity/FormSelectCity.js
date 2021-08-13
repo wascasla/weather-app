@@ -51,8 +51,8 @@ const FormSelectCity = ({ setCurrentPosition }) => {
       <form onSubmit={handleSubmit}>
         <label>
           Elige una ciudad para consultar el clima:
-          <select name="city" value={citySelected?.id} onChange={handleChange}>
-            <option value="none" selected disabled hidden>
+          <select name="city" value={citySelected?.id} defaultValue="none" onChange={handleChange}>
+            <option value="none" disabled hidden>
               Seleccione una Ciudad
             </option>
             {listCities.map((city) => (

@@ -3,7 +3,6 @@ import moment from "moment";
 import "./CardForecastWeather.css";
 
 const CardForecastWeather = ({ data, index }) => {
-  console.log(data);
   return (
     <div className="box">
       <div key={data?.dt} className="card-for">

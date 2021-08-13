@@ -1,7 +1,15 @@
 import api from "./api";
 
+const key = process.env.REACT_APP_KEY_WEATHER_API;
+
 export default {
-  getDevices(params) {
-    return api.get(`current/`);
+  getCurrentWeather: function (latitude, longitude) {
+    return api.get(`weather/?lat=${latitude}&lon=${longitude}&units=metric&appid=${key}`);
+  },
+
+  getForecastWeather: function (latitude, longitude) {
+    return api.get(
+      `onecall?lat=${latitude}&lon=${longitude}&exclude=current,hourly,minutely,alerts&units=metric&appid=${key}`
+    );
   },
 };
