@@ -1,11 +1,18 @@
 import React from "react";
+import Spinner from "../spinner/Spinner";
 import "./CardCurrentWeather.css";
 
-const CardCurrentWeather = ({ data }) => {
+const CardCurrentWeather = ({ data, loading }) => {
   return (
     <div className="card">
-      <h2>Current weather</h2>
-      <div>{Math.round(data?.main?.temp)}°C</div>
+      {!loading ? (
+        <>
+          <h3>Actual</h3>
+          <div>{Math.round(data?.main?.temp)}°C</div>
+        </>
+      ) : (
+        <Spinner />
+      )}
     </div>
   );
 };

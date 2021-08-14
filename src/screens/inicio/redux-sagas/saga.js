@@ -7,7 +7,6 @@ function* getCurrentWeather(action) {
   try {
     const { latitude, longitude } = action.payload;
     const response = yield call(weather.getCurrentWeather, latitude, longitude);
-    console.log("getCurrentWeather sagass", response.data);
     yield put(actions.getCurrentWeatherSuccess(response.data));
   } catch (error) {
     yield put(actions.getCurrentWeatherError(error));
@@ -22,10 +21,8 @@ function* getForecatsWeather(action) {
   try {
     const { latitude, longitude } = action.payload;
     const response = yield call(weather.getForecastWeather, latitude, longitude);
-    console.log("getForecatsWeather sagass", response.data.daily);
     yield put(actions.getForecastWeatherSuccess(response.data.daily));
   } catch (error) {
-    console.log("ERROR forecats", error);
     yield put(actions.getForecastWeatherError(error));
   }
 }
