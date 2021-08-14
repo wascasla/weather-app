@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import "./FormSelectCity.css";
 
 const FormSelectCity = ({ setCurrentPosition }) => {
-  const [listCities, setListCities] = useState([
+  const [listCities] = useState([
     {
       id: 1,
       name: "Miami",
@@ -47,21 +48,20 @@ const FormSelectCity = ({ setCurrentPosition }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Elige una ciudad para consultar el clima:
-          <select name="city" value={citySelected?.id} defaultValue="none" onChange={handleChange}>
-            <option value="none" disabled hidden>
-              Seleccione una Ciudad
+    <div className="select-city">
+      <form className="form-select-city" onSubmit={handleSubmit}>
+        <label>Elige una ciudad para consultar el clima:</label>
+        <select name="city" value={citySelected?.id} defaultValue="none" onChange={handleChange}>
+          <option value="none" disabled hidden>
+            Seleccione una Ciudad
+          </option>
+          {listCities.map((city) => (
+            <option key={city.id} value={city.id}>
+              {city.name}{" "}
             </option>
-            {listCities.map((city) => (
-              <option key={city.id} value={city.id}>
-                {city.name}{" "}
-              </option>
-            ))}
-          </select>
-        </label>
+          ))}
+        </select>
+
         <input type="submit" value="Consultar" />
       </form>
     </div>

@@ -11,7 +11,9 @@ const Inicio = () => {
   const dispatch = useDispatch();
   const [currentPosition, setCurrentPosition] = useState();
 
-  const { currentWeather, forecatsWeather, loadingCurrent, loadingForecast } = useSelector((state) => state.weather);
+  const { currentWeather, forecatsWeather, loadingCurrent, loadingForecast, errorCurrent, errorForecast } = useSelector(
+    (state) => state.weather
+  );
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -30,12 +32,8 @@ const Inicio = () => {
     <div>
       <h1>Clima en {loadingCurrent ? "..." : currentWeather?.name} </h1>
       <FormSelectCity setCurrentPosition={setCurrentPosition} />
-      <CardCurrentWeather data={currentWeather} loading={loadingCurrent} />
-      <h3>Clima para los próximos 5 días </h3>
-      {/* {forecatsWeather?.map((w, i) => (
-        <CardForecastWeather key={w.sunset} data={w} index={i} />
-      ))} */}
-      <BoxForecast forecatsWeatherList={forecatsWeather} loading={loadingForecast} />
+      <CardCurrentWeather data={currentWeather} loading={loadingCurrent} error={errorCurrent} />
+      <BoxForecast forecatsWeatherList={forecatsWeather} loading={loadingForecast} error={errorForecast} />
     </div>
   );
 };
