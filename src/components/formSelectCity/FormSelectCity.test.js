@@ -2,7 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import FormSelectCity from "./FormSelectCity";
 
-describe(" Pruebas en <FormSelectCity />", () => {
+describe("Pruebas en <FormSelectCity />", () => {
   const getWeather = jest.fn();
   let wrapper = shallow(<FormSelectCity getWeather={getWeather} />);
 
@@ -21,6 +21,5 @@ describe(" Pruebas en <FormSelectCity />", () => {
 
     expect(getWeather).not.toHaveBeenCalled();
     expect(window.alert).toHaveBeenCalled();
-    //expect(wrapper.find("alert").exists()).toBe(true);
   });
 });
