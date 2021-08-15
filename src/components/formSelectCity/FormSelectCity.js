@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./FormSelectCity.css";
 
-const FormSelectCity = ({ setCurrentPosition }) => {
+const FormSelectCity = ({ getWeather }) => {
   const [listCities] = useState([
     {
       id: 1,
@@ -44,7 +44,11 @@ const FormSelectCity = ({ setCurrentPosition }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setCurrentPosition(citySelected);
+    if (citySelected) {
+      getWeather(citySelected);
+    } else {
+      alert("Debe seleccionar una ciudad!!!");
+    }
   };
 
   return (

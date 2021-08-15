@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <FormSelectCity /> Debe de mostrar el componente correctamente 1`] = `
+<div
+  className="select-city"
+>
+  <form
+    className="form-select-city"
+    onSubmit={[Function]}
+  >
+    <label>
+      Elige una ciudad para consultar el clima:
+    </label>
+    <select
+      defaultValue="none"
+      name="city"
+      onChange={[Function]}
+    >
+      <option
+        disabled={true}
+        hidden={true}
+        value="none"
+      >
+        Seleccione una Ciudad
+      </option>
+      <option
+        key="1"
+        value={1}
+      >
+        Miami
+         
+      </option>
+      <option
+        key="2"
+        value={2}
+      >
+        Porto Alegre
+         
+      </option>
+      <option
+        key="3"
+        value={3}
+      >
+        Tilcara
+         
+      </option>
+      <option
+        key="4"
+        value={4}
+      >
+        Villa del Prado
+         
+      </option>
+      <option
+        key="5"
+        value={5}
+      >
+        New York City
+         
+      </option>
+    </select>
+    <input
+      type="submit"
+      value="Consultar"
+    />
+  </form>
+</div>
+`;
