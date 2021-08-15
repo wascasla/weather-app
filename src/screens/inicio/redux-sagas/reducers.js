@@ -11,13 +11,13 @@ const initialState = {
 };
 
 const WeatherReducer = createReducer(initialState, {
-  [types.GET_CURRENT_WEATHER](state, action) {
+  [types.GET_CURRENT_WEATHER](state) {
     return { ...state, loadingCurrent: true, currentWeather: undefined, errorCurrent: undefined };
   },
   [types.GET_CURRENT_WEATHER_SUCCESS](state, action) {
     return { ...state, loadingCurrent: false, currentWeather: action.payload };
   },
-  [types.GET_CURRENT_WEATHER_ERROR](state, action) {
+  [types.GET_CURRENT_WEATHER_ERROR](state) {
     return {
       ...state,
       loadingCurrent: false,
@@ -25,14 +25,14 @@ const WeatherReducer = createReducer(initialState, {
     };
   },
 
-  [types.GET_FORECAST_WEATHER](state, action) {
+  [types.GET_FORECAST_WEATHER](state) {
     return { ...state, loadingForecast: true, forecatsWeather: [], errorForecast: undefined };
   },
   [types.GET_FORECAST_WEATHER_SUCCESS](state, action) {
     let data = action.payload;
     return { ...state, loadingForecast: false, forecatsWeather: data.slice(0, 5) };
   },
-  [types.GET_FORECAST_WEATHER_ERROR](state, action) {
+  [types.GET_FORECAST_WEATHER_ERROR](state) {
     return {
       ...state,
       loadingForecast: false,

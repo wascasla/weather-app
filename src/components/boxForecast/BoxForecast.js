@@ -2,6 +2,7 @@ import React from "react";
 import CardForecastWeather from "../cardForecastWeather/CardForecastWeather";
 import Spinner from "../spinner/Spinner";
 import "./BoxForecast.css";
+import PropTypes from "prop-types";
 
 const BoxForecast = ({ forecatsWeatherList, loading, error }) => {
   return (
@@ -18,6 +19,12 @@ const BoxForecast = ({ forecatsWeatherList, loading, error }) => {
       {error ? error : null}
     </>
   );
+};
+
+BoxForecast.propTypes = {
+  error: PropTypes.string,
+  loading: PropTypes.bool,
+  forecatsWeatherList: PropTypes.array,
 };
 
 export default BoxForecast;

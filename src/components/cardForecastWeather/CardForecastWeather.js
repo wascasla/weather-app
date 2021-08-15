@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
 import "./CardForecastWeather.css";
+import PropTypes from "prop-types";
 
 const CardForecastWeather = ({ data, index }) => {
   return (
@@ -15,6 +16,11 @@ const CardForecastWeather = ({ data, index }) => {
       </div>
     </div>
   );
+};
+
+CardForecastWeather.propTypes = {
+  data: PropTypes.any,
+  index: PropTypes.number,
 };
 
 export default CardForecastWeather;
