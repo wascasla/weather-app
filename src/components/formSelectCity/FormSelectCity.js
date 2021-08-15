@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./FormSelectCity.css";
+import PropTypes from "prop-types";
 
 const FormSelectCity = ({ getWeather }) => {
   const [listCities] = useState([
@@ -70,6 +71,10 @@ const FormSelectCity = ({ getWeather }) => {
       </form>
     </div>
   );
+};
+
+FormSelectCity.propTypes = {
+  getWeather: PropTypes.func,
 };
 
 export default FormSelectCity;

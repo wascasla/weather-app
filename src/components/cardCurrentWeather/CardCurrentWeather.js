@@ -1,6 +1,7 @@
 import React from "react";
 import Spinner from "../spinner/Spinner";
 import "./CardCurrentWeather.css";
+import PropTypes from "prop-types";
 
 const CardCurrentWeather = ({ data, loading, error }) => {
   return (
@@ -15,6 +16,12 @@ const CardCurrentWeather = ({ data, loading, error }) => {
       {error ? error : null}
     </div>
   );
+};
+
+CardCurrentWeather.propTypes = {
+  error: PropTypes.string,
+  loading: PropTypes.bool,
+  data: PropTypes.any,
 };
 
 export default CardCurrentWeather;
