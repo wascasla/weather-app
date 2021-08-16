@@ -12,7 +12,8 @@ const CardForecastWeather = ({ data, index }) => {
             .add(index + 1, "d")
             .format("DD/MM")}
         </h5>
-        <div>{Math.round(data?.temp?.day)}°C</div>
+        <div>{Math.round(data?.temp?.max)}°C</div>
+        <div>{Math.round(data?.temp?.min)}°C</div>
       </div>
     </div>
   );
